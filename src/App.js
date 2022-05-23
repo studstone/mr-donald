@@ -1,5 +1,6 @@
 import { React } from "react";
 import { createGlobalStyle } from "styled-components";
+import NavBar from "./Components/NavBar";
 
 const ClobalStyle = createGlobalStyle`
   html {
@@ -14,10 +15,15 @@ const ClobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    background-color: f0f0f0;
+    background-color: #f0f0f0;
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 10px;
     color: black;
+  }
+
+  img{
+    max-width: 100%;
+    height: auto;
   }
 
   a{
@@ -47,12 +53,10 @@ const ClobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <div>
+    <>
       <ClobalStyle />
-      <div className="App">
-        <h1>привет</h1>
-      </div>
-    </div>
+      <NavBar />
+    </>
   );
 }
 
