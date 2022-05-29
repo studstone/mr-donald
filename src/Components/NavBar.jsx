@@ -37,7 +37,6 @@ const HeaderButton = styled.button`
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
     border: none;
     background-color: transparent;
     color: inherit;
