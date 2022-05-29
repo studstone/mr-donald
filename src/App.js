@@ -53,6 +53,10 @@ const ClobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  input, button{
+    font-family: inherit;
+  }
 `;
 
 function App() {
