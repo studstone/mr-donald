@@ -49,6 +49,10 @@ const ClobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+
+  button {
+    cursor: pointer;
+  }
 `;
 
 function App() {
