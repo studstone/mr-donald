@@ -1,5 +1,6 @@
 import { React } from "react";
 import { createGlobalStyle } from "styled-components";
+import Menu from "./Components/Menu";
 import NavBar from "./Components/NavBar";
 
 const ClobalStyle = createGlobalStyle`
@@ -64,6 +65,7 @@ function App() {
     <>
       <ClobalStyle />
       <NavBar />
+      <Menu />
     </>
   );
 }
