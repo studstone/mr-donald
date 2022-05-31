@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import BanerItem from './BanerItem';
 import dbMenu from './DBMenu';
 import ListItem from './ListItem';
 
@@ -23,6 +24,7 @@ const SectionTitle = styled.h2`
 const Menu = () => {
     return (
         <MenyStyled>
+            <BanerItem />
             <SectionMenu>
                 <SectionTitle>Бургеры</SectionTitle>
                 <ListItem itemList={dbMenu.burger} />
