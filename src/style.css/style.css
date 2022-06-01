@@ -1,0 +1,68 @@
+.modal-close {
+  animation-name: closeModal;
+  animation-duration: 1s;
+}
+
+.modal-open {
+  animation-name: openModal;
+  animation-duration: 1s;
+}
+
+.overlay-open {
+  animation-name: openOverlay;
+  animation-duration: 1s;
+}
+
+.overlay-close {
+  animation-name: closeOverlay;
+  animation-duration: 1s;
+}
+
+@keyframes openOverlay {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes closeOverlay {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes openModal {
+  0% {
+    opacity: 0;
+    top: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 20%;
+  }
+}
+
+@keyframes closeModal {
+  0% {
+    opacity: 1;
+    top: 20%;
+  }
+
+  50% {
+    opacity: 1;
+    top: 30%;
+  }
+
+  100% {
+    opacity: 0;
+    top: 0;
+  }
+}

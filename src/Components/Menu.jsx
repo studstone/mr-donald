@@ -21,18 +21,26 @@ const SectionTitle = styled.h2`
     color: #000000;
 `
 
-const Menu = () => {
+const Menu = ({ setOpenItem, setActiveState }) => {
     return (
         <MenyStyled>
             <BanerItem />
             <SectionMenu>
                 <SectionTitle>Бургеры</SectionTitle>
-                <ListItem itemList={dbMenu.burger} />
+                <ListItem
+                    itemList={dbMenu.burger}
+                    setOpenItem={setOpenItem}
+                    setActiveState={setActiveState}
+                />
             </SectionMenu>
 
             <SectionMenu>
                 <SectionTitle>Закуски / напитки</SectionTitle>
-                <ListItem itemList={dbMenu.other} />
+                <ListItem
+                    itemList={dbMenu.other}
+                    setOpenItem={setOpenItem}
+                    setActiveState={setActiveState}
+                />
             </SectionMenu>
         </MenyStyled>
     );
