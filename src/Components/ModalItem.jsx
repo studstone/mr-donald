@@ -2,6 +2,7 @@ import { React } from 'react';
 import styled from 'styled-components';
 import IconCloseButton from '../image/close.svg';
 import '../style.css/style.css';
+import ButtonCheckout from './ButtonCheckout';
 
 const Overlay = styled.div`
     position: fixed;
@@ -59,22 +60,7 @@ const ProductPrice = styled.span`
     font-size: 30px;
     line-height: 53px;
 `
-const ModalButton = styled.button`
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 25px;
-    background-color: #299B01;
-    width: 250px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border: none;
-    color: white;
-    border-radius: 8px;
-    &:hover {
-    background-color: #3ce200;
-    }
-`
+
 const CloseButton = styled.button`
     position: absolute;
     right: 30px;
@@ -128,7 +114,7 @@ const ModalItem = ({ openItem, setOpenItem, activeState, setActiveState }) => {
                         <ProductPrice>{openItem.price.toLocaleString('ru-RU',
                             { style: 'currency', currency: 'RUB' })}</ProductPrice>
                     </ProductInfo>
-                    <ModalButton>Добавить</ModalButton>
+                    <ButtonCheckout>Добавить</ButtonCheckout>
                 </ModalContent>
                 <CloseButton id='close-button' />
             </Modal>
