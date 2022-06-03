@@ -35,14 +35,23 @@ const ImgLogo = styled.img`
 
 const HeaderButton = styled.button`
     display: flex;
+    width: 70px;
+    height: 70px;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border: none;
     background-color: transparent;
     color: inherit;
     font-style: normal;
     font-size: 16px;
     line-height: 19px;
+    border-radius: 50%;
+    &:hover{
+        background-color: #32bd00;
+        box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
+        transition: 1s;
+    }
 `
 const IconButton = styled.img`
     width: 32px;
