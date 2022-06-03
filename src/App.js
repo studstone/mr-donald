@@ -3,6 +3,7 @@ import ClobalStyle from "./Components/GlobalStyle";
 import Menu from "./Components/Menu";
 import ModalItem from "./Components/ModalItem";
 import NavBar from "./Components/NavBar";
+import Order from "./Components/Order";
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
     <>
       <ClobalStyle />
       <NavBar />
+      <Order />
       <Menu
         setOpenItem={setOpenItem}
         setActiveState={setActiveState}

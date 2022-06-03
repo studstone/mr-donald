@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 const List = styled.ul`
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
+    row-gap: 31px;
     flex-wrap: wrap;
 `;
 
@@ -14,8 +15,6 @@ const Item = styled.li`
     background-image: ${({ img }) => `url(${img})`};
     background-position: center;
     background-size: cover;
-    margin-top: 30px;
-    margin-right: 30px;
     padding: 15px;
     color: white;
     z-index: 1;
@@ -38,6 +37,7 @@ const Item = styled.li`
     &:hover {
         cursor: pointer;
         box-shadow: inset 0 0 10px 10px rgba(0,0,0,0.7);
+        transition: .3s;
         &::after {
             opacity: 0;
         }

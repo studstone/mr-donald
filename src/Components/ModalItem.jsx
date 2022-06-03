@@ -1,7 +1,7 @@
 import { React } from 'react';
 import styled from 'styled-components';
 import IconCloseButton from '../image/close.svg';
-import '../style.css/style.css';
+import '../style/style.css';
 import ButtonCheckout from './ButtonCheckout';
 
 const Overlay = styled.div`
