@@ -1,17 +1,18 @@
-import { React, useState } from "react";
-import ClobalStyle from "./Components/GlobalStyle";
-import Menu from "./Components/Menu";
-import ModalItem from "./Components/ModalItem";
-import NavBar from "./Components/NavBar";
-import Order from "./Components/Order";
-import useOpenItem from './Components/Hooks/useOpenItem'
-import useOrders from './Components/Hooks/useOrders'
+import React from "react";
+import ClobalStyle from "./Components/GlobalStyle/GlobalStyle";
+import Menu from "./Components/Menu/Menu";
+import ModalItem from "./Components/Modal/ModalItem";
+import NavBar from "./Components/NavBar/NavBar";
+import Order from "./Components/Order/Order";
+import useOpenItem from './Components/Hooks/useOpenItem';
+import useOrders from './Components/Hooks/useOrders';
+import useActiveState from './Components/Hooks/useActiveState';
 
 const App = () => {
 
   const openItem = useOpenItem()
 
-  const [activeState, setActiveState] = useState(true);
+  const activState = useActiveState()
 
   const orders = useOrders()
 
@@ -22,12 +23,11 @@ const App = () => {
       <Order {...orders} />
       <Menu
         {...openItem}
-        setActiveState={setActiveState}
+        {...activState}
       />
       {openItem.openItem && <ModalItem
         {...openItem}
-        activeState={activeState}
-        setActiveState={setActiveState}
+        {...activState}
         {...orders}
       />}
     </>

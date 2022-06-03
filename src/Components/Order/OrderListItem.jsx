@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import TrashImage from '../image/trash.svg';
-import TrashImagehHover from '../image/trash-hover.svg';
+import TrashImage from '../../image/trash.svg';
+import TrashImagehHover from '../../image/trash-hover.svg';
+import '../../style/order-animation.css'
 
 const OrderItemStyled = styled.li`
+    position: relative;
     display: flex;
     align-items: center;
     width: 100%;
@@ -54,7 +56,7 @@ const TrashButton = styled.button`
 const OrderListItem = ({ order }) => {
     return (
 
-        < OrderItemStyled>
+        < OrderItemStyled className='active'>
             <ItemName>{order.name}</ItemName>
             <ItemCount>2</ItemCount>
             <ItemPrice>{order.price.toLocaleString('ru-RU',

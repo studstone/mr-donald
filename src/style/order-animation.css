@@ -1,0 +1,16 @@
+.active {
+  animation-name: orderItemAcrive;
+  animation-duration: 1s;
+}
+
+@keyframes orderItemAcrive {
+  0% {
+    opacity: 0;
+    left: -380px;
+  }
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}

@@ -1,8 +1,8 @@
 import { React } from 'react';
 import styled from 'styled-components';
-import IconCloseButton from '../image/close.svg';
-import '../style/style.css';
-import ButtonCheckout from './ButtonCheckout';
+import IconCloseButton from '../../image/close.svg';
+import '../../style/modal-animation.css';
+import ButtonCheckout from '../Button/ButtonCheckout';
 
 const Overlay = styled.div`
     position: fixed;

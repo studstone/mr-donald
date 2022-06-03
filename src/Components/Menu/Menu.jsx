@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BanerItem from './BanerItem';
-import dbMenu from './DBMenu';
+import dbMenu from '../DBMenu';
 import ListItem from './ListItem';
 
 const MenyStyled = styled.main`
