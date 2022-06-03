@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TrashImage from '../image/trash.svg';
-import TrasImagehHover from '../image/trash-hover.svg';
+import TrashImagehHover from '../image/trash-hover.svg';
 
 const OrderItemStyled = styled.li`
     display: flex;
@@ -46,17 +46,19 @@ const TrashButton = styled.button`
     background-size: cover;
     background-repeat: no-repeat;
     &:hover {
-        background-image: url(${TrasImagehHover});
+        background-image: url(${TrashImagehHover});
         transition: .5s;
     }
 `
 
-const OrderListItem = () => {
+const OrderListItem = ({ order }) => {
     return (
-        <OrderItemStyled>
-            <ItemName>JS Burger</ItemName>
+
+        < OrderItemStyled>
+            <ItemName>{order.name}</ItemName>
             <ItemCount>2</ItemCount>
-            <ItemPrice>500 P</ItemPrice>
+            <ItemPrice>{order.price.toLocaleString('ru-RU',
+                { style: 'currency', currency: 'RUB' })}</ItemPrice>
             <TrashButton />
         </OrderItemStyled>
     );

@@ -4,28 +4,32 @@ import Menu from "./Components/Menu";
 import ModalItem from "./Components/ModalItem";
 import NavBar from "./Components/NavBar";
 import Order from "./Components/Order";
+import useOpenItem from './Components/Hooks/useOpenItem'
+import useOrders from './Components/Hooks/useOrders'
 
 const App = () => {
 
-  const [openItem, setOpenItem] = useState(null);
+  const openItem = useOpenItem()
 
   const [activeState, setActiveState] = useState(true);
+
+  const orders = useOrders()
 
   return (
     <>
       <ClobalStyle />
       <NavBar />
-      <Order />
+      <Order {...orders} />
       <Menu
-        setOpenItem={setOpenItem}
+        {...openItem}
         setActiveState={setActiveState}
       />
-      <ModalItem
-        openItem={openItem}
-        setOpenItem={setOpenItem}
+      {openItem.openItem && <ModalItem
+        {...openItem}
         activeState={activeState}
         setActiveState={setActiveState}
-      />
+        {...orders}
+      />}
     </>
   );
 }

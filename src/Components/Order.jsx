@@ -61,16 +61,25 @@ const TotalPrice = styled.span`
     margin-right: 10px;
 `
 
-const Order = () => {
+const EmtyList = styled.p`
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+`
+
+const Order = ({ orders }) => {
     return (
-        <OrderStyled>
+        <OrderStyled >
             <OrderTitle>Ваш Заказ</OrderTitle>
             <OrderContent>
-                <OrderList>
-                    <OrderListItem />
-                    <OrderListItem />
-                    <OrderListItem />
-                </OrderList>
+                {orders.length ?
+                    <OrderList>
+                        {orders.map(order => <OrderListItem key={order.id} order={order} />)}
+                    </OrderList> :
+                    <EmtyList>Список звказов пуст</EmtyList>
+                }
             </OrderContent>
             <Total>
                 <TotalName>Итого:</TotalName>

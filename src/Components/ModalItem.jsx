@@ -78,7 +78,7 @@ const CloseButton = styled.button`
 `
 
 
-const ModalItem = ({ openItem, setOpenItem, activeState, setActiveState }) => {
+const ModalItem = ({ openItem, setOpenItem, activeState, setActiveState, orders, setOrders }) => {
 
     let timeout = null;
 
@@ -98,7 +98,15 @@ const ModalItem = ({ openItem, setOpenItem, activeState, setActiveState }) => {
         }
     });
 
-    if (!openItem) return null;
+    const order = {
+        ...openItem
+    };
+
+    const addToOrder = () => {
+        setOrders([...orders, order])
+        setTimeout(() => setOpenItem(null), 1000)
+        setActiveState(false)
+    }
 
     return (
         < Overlay
@@ -114,7 +122,7 @@ const ModalItem = ({ openItem, setOpenItem, activeState, setActiveState }) => {
                         <ProductPrice>{openItem.price.toLocaleString('ru-RU',
                             { style: 'currency', currency: 'RUB' })}</ProductPrice>
                     </ProductInfo>
-                    <ButtonCheckout>Добавить</ButtonCheckout>
+                    <ButtonCheckout onClick={addToOrder}>Добавить</ButtonCheckout>
                 </ModalContent>
                 <CloseButton id='close-button' />
             </Modal>
