@@ -1,5 +1,6 @@
 .active {
   animation-name: orderItemAcrive;
+  /* animation-delay: 1s; */
   animation-duration: 1s;
 }
 

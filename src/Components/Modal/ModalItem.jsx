@@ -78,7 +78,9 @@ const CloseButton = styled.button`
 `
 
 
-const ModalItem = ({ openItem, setOpenItem, activeState, setActiveState, orders, setOrders }) => {
+const ModalItem = ({ openItem, setOpenItem,
+    activeState, setActiveState,
+    orders, setOrders }) => {
 
     let timeout = null;
 
@@ -103,7 +105,7 @@ const ModalItem = ({ openItem, setOpenItem, activeState, setActiveState, orders,
     };
 
     const addToOrder = () => {
-        setOrders([...orders, order])
+        setTimeout(() => setOrders([...orders, order]), 1000)
         setTimeout(() => setOpenItem(null), 1000)
         setActiveState(false)
     }
@@ -131,6 +133,3 @@ const ModalItem = ({ openItem, setOpenItem, activeState, setActiveState, orders,
 }
 
 export default ModalItem;
-
-
-/*  */
