@@ -5,6 +5,8 @@ import '../../style/modal-animation.css';
 import ButtonCheckout from '../Button/ButtonCheckout';
 import CountItem from './CountItem';
 import useCount from '../Hooks/useCount'
+import { calcPrice } from '../Function/secondoryFunction';
+import { formatCurrency } from '../Function/secondoryFunction';
 
 const Overlay = styled.div`
     position: fixed;
@@ -89,9 +91,6 @@ const TotalPriceItem = styled.div`
     }
 `
 
-export const calcPrice = order => order.price * order.count
-
-
 const ModalItem = ({ openItem, setOpenItem,
     activeState, setActiveState,
     orders, setOrders }) => {
@@ -136,14 +135,12 @@ const ModalItem = ({ openItem, setOpenItem,
                 <ModalContent>
                     <ProductInfo>
                         <ProductName>{openItem.name}</ProductName>
-                        <ProductPrice>{openItem.price.toLocaleString('ru-RU',
-                            { style: 'currency', currency: 'RUB' })}</ProductPrice>
+                        <ProductPrice>{formatCurrency(openItem.price)}</ProductPrice>
                     </ProductInfo>
                     <CountItem {...counter} />
                     <TotalPriceItem>
                         <span>Цена:</span>
-                        <span>{calcPrice(order).toLocaleString('ru-RU',
-                            { style: 'currency', currency: 'RUB' })}</span>
+                        <span>{formatCurrency(calcPrice(order))}</span>
                     </TotalPriceItem>
                     <ButtonCheckout onClick={addToOrder}>Добавить</ButtonCheckout>
                 </ModalContent>

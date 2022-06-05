@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { calcPrice } from '../Modal/ModalItem';
+import { calcPrice, formatCurrency } from '../Function/secondoryFunction';
 import TrashImage from '../../image/trash.svg';
 import TrashImagehHover from '../../image/trash-hover.svg';
 import '../../style/order-animation.css'
@@ -60,8 +60,7 @@ const OrderListItem = ({ order }) => {
         < OrderItemStyled className='active'>
             <ItemName>{order.name}</ItemName>
             <ItemCount>{order.count}</ItemCount>
-            <ItemPrice>{calcPrice(order).toLocaleString('ru-RU',
-                { style: 'currency', currency: 'RUB' })}</ItemPrice>
+            <ItemPrice>{formatCurrency(calcPrice(order))}</ItemPrice>
             <TrashButton />
         </OrderItemStyled>
     );
