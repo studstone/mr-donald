@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import IconCloseButton from '../../image/close.svg';
 import '../../style/modal-animation.css';
 import ButtonCheckout from '../Button/ButtonCheckout';
+import CountItem from './CountItem';
+import useCount from '../Hooks/useCount'
 
 const Overlay = styled.div`
     position: fixed;
@@ -77,10 +79,27 @@ const CloseButton = styled.button`
     }
 `
 
+const TotalPriceItem = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    & span {
+        font: normal 400 21px/25px Roboto, sans-serif;
+    }
+`
+
+export const calcPrice = order => order.price * order.count
+
 
 const ModalItem = ({ openItem, setOpenItem,
     activeState, setActiveState,
     orders, setOrders }) => {
+    const counter = useCount()
+    const order = {
+        ...openItem,
+        count: counter.count
+    };
 
     let timeout = null;
 
@@ -99,10 +118,6 @@ const ModalItem = ({ openItem, setOpenItem,
             setActiveState(false)
         }
     });
-
-    const order = {
-        ...openItem
-    };
 
     const addToOrder = () => {
         setTimeout(() => setOrders([...orders, order]), 1000)
@@ -124,6 +139,12 @@ const ModalItem = ({ openItem, setOpenItem,
                         <ProductPrice>{openItem.price.toLocaleString('ru-RU',
                             { style: 'currency', currency: 'RUB' })}</ProductPrice>
                     </ProductInfo>
+                    <CountItem {...counter} />
+                    <TotalPriceItem>
+                        <span>Цена:</span>
+                        <span>{calcPrice(order).toLocaleString('ru-RU',
+                            { style: 'currency', currency: 'RUB' })}</span>
+                    </TotalPriceItem>
                     <ButtonCheckout onClick={addToOrder}>Добавить</ButtonCheckout>
                 </ModalContent>
                 <CloseButton id='close-button' />

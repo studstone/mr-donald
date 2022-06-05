@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ButtonCheckout from '../Button/ButtonCheckout';
+import { calcPrice } from '../Modal/ModalItem';
 import OrderListItem from './OrderListItem';
 
 const OrderStyled = styled.section`
@@ -70,6 +71,11 @@ const EmtyList = styled.p`
 `
 
 const Order = ({ orders }) => {
+
+    const total = orders.reduce((res, order) =>
+        calcPrice(order) + res
+        , 0)
+
     return (
         <OrderStyled >
             <OrderTitle>Ваш Заказ</OrderTitle>
@@ -78,13 +84,14 @@ const Order = ({ orders }) => {
                     <OrderList>
                         {orders.map(order => <OrderListItem key={order.id} order={order} />)}
                     </OrderList> :
-                    <EmtyList>Список звказов пуст</EmtyList>
+                    <EmtyList>Список заказов пуст</EmtyList>
                 }
             </OrderContent>
             <Total>
                 <TotalName>Итого:</TotalName>
                 <TotalCount>5</TotalCount>
-                <TotalPrice>250 Р</TotalPrice>
+                <TotalPrice>{total.toLocaleString('ru-RU',
+                    { style: 'currency', currency: 'RUB' })}</TotalPrice>
             </Total>
             <ButtonCheckout>Оформить</ButtonCheckout>
         </OrderStyled>
