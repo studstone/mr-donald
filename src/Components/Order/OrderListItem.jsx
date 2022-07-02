@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { calcPrice, formatCurrency } from '../Function/secondoryFunction';
-import TrashImage from '../../image/trash.svg';
-import TrashImagehHover from '../../image/trash-hover.svg';
 import '../../style/order-animation.css'
+import TrashIcon from './TrashIcon';
 
 const OrderItemStyled = styled.li`
     position: relative;
@@ -40,18 +39,11 @@ const ItemPrice = styled.span`
 `
 
 const TrashButton = styled.button`
-    width: 24px;
+    padding: 0;
+    width: 25px;
     height: 24px;
     background-color: transparent;
     border: none;
-    background-image: url(${TrashImage});
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    &:hover {
-        background-image: url(${TrashImagehHover});
-        transition: background-image .5s ease-in-out;
-    }
 `
 
 const OrderListItem = ({ order }) => {
@@ -61,7 +53,9 @@ const OrderListItem = ({ order }) => {
             <ItemName>{order.name}</ItemName>
             <ItemCount>{order.count}</ItemCount>
             <ItemPrice>{formatCurrency(calcPrice(order))}</ItemPrice>
-            <TrashButton />
+            <TrashButton>
+                <TrashIcon />
+            </TrashButton>
         </OrderItemStyled>
     );
 }

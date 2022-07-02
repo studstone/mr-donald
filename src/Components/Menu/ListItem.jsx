@@ -46,6 +46,8 @@ const Item = styled.li`
 `;
 
 const ListItem = ({ itemList, setOpenItem, setActiveState }) => {
+    const body = document.querySelector('body')
+
     return (
         <List>
             {itemList.map(item => (
@@ -54,7 +56,8 @@ const ListItem = ({ itemList, setOpenItem, setActiveState }) => {
                     img={item.img}
                     onClick={() => {
                         setActiveState(true);
-                        setOpenItem(item)
+                        setOpenItem(item);
+                        body.style.overflow = 'hidden';
                     }}
                 >
                     <p>{item.name}</p>

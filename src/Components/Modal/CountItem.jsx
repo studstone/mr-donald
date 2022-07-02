@@ -32,10 +32,10 @@ const ButtonCountMinus = styled.button`
     text-align: center;
     margin-right: 5px;
     &:hover {
-        transition: 0.5s;
         background-color: #299B01;
         border: none;
         color: white;
+        transition: all 0.5s ease-in-out;
     }
 `
 
@@ -49,10 +49,10 @@ const ButtonCountPlus = styled.button`
     text-align: center;
     margin-left: 5px;
     &:hover {
-        transition: 0.5s;
         background-color: #299B01;
         border: none;
         color: white;
+        transition: all 0.5s ease-in-out;
     }
 `
 

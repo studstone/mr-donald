@@ -1,0 +1,28 @@
+.trash:hover .trash-can {
+  fill: #ea0000;
+  transition: fill 0.5s ease-in-out;
+}
+
+.trash:hover .trash-all {
+  fill: #ef3900;
+  transition: fill 0.5s ease-in-out;
+}
+
+.trash:hover .trash-facet {
+  fill: #630808;
+  transition: fill 0.5s ease-in-out;
+}
+
+.trash:hover .trash-stroke {
+  fill: #630808;
+  transition: fill 0.5s ease-in-out;
+}
+
+.icon {
+  width: 25px;
+  height: 24px;
+}
+
+.svg {
+  display: none;
+}

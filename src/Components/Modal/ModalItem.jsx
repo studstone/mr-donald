@@ -24,8 +24,9 @@ const Modal = styled.div`
     transform: translateX(-50%);
     left: 50%;
     width: 600px;
-    height: 600px;
+    height: auto;
     border-radius: 8px;
+    overflow-y: auto;
 `
 const Banner = styled.div`
     height: 200px;
@@ -95,6 +96,7 @@ const TotalPriceItem = styled.div`
 const ModalItem = ({ openItem, setOpenItem,
     activeState, setActiveState,
     orders, setOrders }) => {
+    const body = document.querySelector('body')
     const counter = useCount()
     const order = {
         ...openItem,
@@ -108,6 +110,7 @@ const ModalItem = ({ openItem, setOpenItem,
         if (e.target.id === 'overlay' || e.target.id === 'close-button') {
             timeout = setTimeout(() => setOpenItem(null), 1000)
             setActiveState(false)
+            body.removeAttribute('style')
         }
     }
 
@@ -116,6 +119,7 @@ const ModalItem = ({ openItem, setOpenItem,
         if (e.key === "Escape" && Overlay) {
             timeout = setTimeout(() => setOpenItem(null), 1000)
             setActiveState(false)
+            body.removeAttribute('style')
         }
     });
 
