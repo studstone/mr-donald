@@ -7,6 +7,7 @@ import CountItem from './CountItem';
 import useCount from '../Hooks/useCount'
 import { calcPrice } from '../Function/secondoryFunction';
 import { formatCurrency } from '../Function/secondoryFunction';
+import Topings from './Topings';
 
 const Overlay = styled.div`
     position: fixed;
@@ -54,15 +55,15 @@ const ProductName = styled.span`
     font-family: 'Pacifico', cursive;
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
-    line-height: 53px;
+    font-size: 24px;
+    line-height: 42px;
 `
 const ProductPrice = styled.span`
     font-family: 'Pacifico', cursive;
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
-    line-height: 53px;
+    font-size: 24px;
+    line-height: 42px;
 `
 
 const CloseButton = styled.button`
@@ -138,6 +139,7 @@ const ModalItem = ({ openItem, setOpenItem,
                         <ProductPrice>{formatCurrency(openItem.price)}</ProductPrice>
                     </ProductInfo>
                     <CountItem {...counter} />
+                    {openItem.toppings && <Topings />}
                     <TotalPriceItem>
                         <span>Цена:</span>
                         <span>{formatCurrency(calcPrice(order))}</span>

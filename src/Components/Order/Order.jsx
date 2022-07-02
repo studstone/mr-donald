@@ -75,6 +75,9 @@ const Order = ({ orders }) => {
     const total = orders.reduce((res, order) =>
         calcPrice(order) + res
         , 0)
+    const totalCounter = orders.reduce((res, order) =>
+        order.count + res
+        , 0)
 
     return (
         <OrderStyled >
@@ -89,7 +92,7 @@ const Order = ({ orders }) => {
             </OrderContent>
             <Total>
                 <TotalName>Итого:</TotalName>
-                <TotalCount>5</TotalCount>
+                <TotalCount>{totalCounter}</TotalCount>
                 <TotalPrice>{formatCurrency(total)}</TotalPrice>
             </Total>
             <ButtonCheckout>Оформить</ButtonCheckout>

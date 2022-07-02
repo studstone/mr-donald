@@ -50,7 +50,7 @@ const TrashButton = styled.button`
     background-repeat: no-repeat;
     &:hover {
         background-image: url(${TrashImagehHover});
-        transition: .5s;
+        transition: background-image .5s ease-in-out;
     }
 `
 
