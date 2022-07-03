@@ -8,6 +8,7 @@ import useCount from '../Hooks/useCount'
 import { calcPrice } from '../Function/secondoryFunction';
 import { formatCurrency } from '../Function/secondoryFunction';
 import Topings from './Topings';
+import useToppings from '../Hooks/useToppings';
 
 const Overlay = styled.div`
     position: fixed;
@@ -97,10 +98,14 @@ const ModalItem = ({ openItem, setOpenItem,
     activeState, setActiveState,
     orders, setOrders }) => {
     const body = document.querySelector('body')
+
     const counter = useCount()
+    const toppings = useToppings(openItem)
+
     const order = {
         ...openItem,
-        count: counter.count
+        count: counter.count,
+        topping: toppings.toppings
     };
 
     let timeout = null;
@@ -143,7 +148,7 @@ const ModalItem = ({ openItem, setOpenItem,
                         <ProductPrice>{formatCurrency(openItem.price)}</ProductPrice>
                     </ProductInfo>
                     <CountItem {...counter} />
-                    {openItem.toppings && <Topings />}
+                    {openItem.toppings && <Topings {...toppings} />}
                     <TotalPriceItem>
                         <span>Цена:</span>
                         <span>{formatCurrency(calcPrice(order))}</span>

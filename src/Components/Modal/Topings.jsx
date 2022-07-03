@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Title = styled.h1`
+const Title = styled.h3`
     width: 100%;
     font: normal 400 24px/42px Pacifico, cursive;
     text-align: left;
@@ -33,15 +33,21 @@ const TopingCheckbox = styled.input`
     outline: none;
 `
 
-function Topings() {
+function Topings({ toppings, checkToppings }) {
     return (
         <>
             <Title>Добавки</Title>
             <TopingWrapper>
-                <TopingLable>
-                    <TopingCheckbox type='checkbox' />
-                    ДопДопДопДоп
-                </TopingLable>
+                {toppings.map((item, i) => (
+                    <TopingLable key={i}>
+                        <TopingCheckbox
+                            type='checkbox'
+                            checked={item.cheked}
+                            onChange={() => checkToppings(i)}
+                        />
+                        {item.name}
+                    </TopingLable>
+                ))}
             </TopingWrapper>
         </>
     )
