@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import CheckIcon from '../../image/check.svg'
 
 const Title = styled.h3`
     width: 100%;
@@ -17,6 +18,7 @@ const TopingLable = styled.label`
     width: 50%;
     display: flex;
     margin-bottom: 10px;
+    cursor: pointer;
     &:nth-last-child(2) {
         margin-bottom: 0;
     }
@@ -24,13 +26,38 @@ const TopingLable = styled.label`
         margin-bottom: 0;
     }
 `
-const TopingCheckbox = styled.input`
-    cursor: pointer;
-    margin: 0;
-    margin-right: 13px;
+const SpanCheckBox = styled.span`
     width: 24px;
     height: 24px;
-    outline: none;
+    border: 1px solid #299B01;
+    border-radius: 6px;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    background-image: none;
+`
+const TopingCheckBox = styled.input`
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+
+    &:hover + span {
+        box-shadow: 0 0 5px 2px #44ff00;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    &:checked + span {
+        background-color: #44ff00;
+        background-image: url(${CheckIcon});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        transition: background-color 0.3s ease-in-out;
+    }
 `
 
 function Topings({ toppings, checkToppings }) {
@@ -40,11 +67,12 @@ function Topings({ toppings, checkToppings }) {
             <TopingWrapper>
                 {toppings.map((item, i) => (
                     <TopingLable key={i}>
-                        <TopingCheckbox
+                        <TopingCheckBox
                             type='checkbox'
-                            checked={item.cheked}
+                            checked={item.checked}
                             onChange={() => checkToppings(i)}
                         />
+                        <SpanCheckBox />
                         {item.name}
                     </TopingLable>
                 ))}
