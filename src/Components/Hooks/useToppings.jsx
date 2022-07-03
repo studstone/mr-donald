@@ -9,15 +9,17 @@ const useToppings = openItem => {
 
     const [toppings, setTopings] = useState(getTopping(openItem.toppings));
 
+
     const checkToppings = index => {
         setTopings(toppings.map((item, i) => {
+            const newItem = { ...item }
             if (i === index) {
-                item.checked = !item.checked
+                newItem.checked = !newItem.checked
             }
-            return item
+
+            return newItem
         }))
     }
-
     return { toppings, checkToppings }
 }
 
