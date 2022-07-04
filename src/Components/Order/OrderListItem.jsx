@@ -8,6 +8,7 @@ const OrderItemStyled = styled.li`
     position: relative;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
     margin-bottom: 25px;
     &:last-child {
@@ -46,7 +47,18 @@ const TrashButton = styled.button`
     border: none;
 `
 
+const ToppingsName = styled.p`
+    color: #9a9a9a;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 5px;
+`
+
 const OrderListItem = ({ order }) => {
+    const topping = order.topping.filter(item => item.checked)
+        .map(item => item.name)
+        .join(', ')
+
     return (
 
         < OrderItemStyled className='active'>
@@ -56,6 +68,7 @@ const OrderListItem = ({ order }) => {
             <TrashButton>
                 <TrashIcon />
             </TrashButton>
+            {topping && <ToppingsName>Допы: {topping}</ToppingsName>}
         </OrderItemStyled>
     );
 }
