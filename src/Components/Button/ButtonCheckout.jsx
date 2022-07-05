@@ -12,9 +12,13 @@ const ButtonCheckout = styled.button`
     border: none;
     color: white;
     border-radius: 8px;
+    transition: background-color .5s ease-in-out;
     &:hover {
-    transition: .5s;
-    background-color: #3ce200;
+        background-color: #3ce200;
+        transition: background-color .5s ease-in-out;
+    }
+    &:disabled {
+        background-color: #6eb853;
     }
 `;
 

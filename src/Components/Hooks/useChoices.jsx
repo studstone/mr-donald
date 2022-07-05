@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const useChoise = openItem => {
+const useChoise = () => {
 
-    const [choice, setChoice] = useState(openItem.choices);
+    const [choice, setChoice] = useState();
 
     const changeChoices = e => {
         setChoice(e.target.value);

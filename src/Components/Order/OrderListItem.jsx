@@ -62,7 +62,7 @@ const OrderListItem = ({ order }) => {
     return (
 
         < OrderItemStyled className='active'>
-            <ItemName>{order.name}</ItemName>
+            <ItemName>{order.name} {order.choice}</ItemName>
             <ItemCount>{order.count}</ItemCount>
             <ItemPrice>{formatCurrency(calcPrice(order))}</ItemPrice>
             <TrashButton>

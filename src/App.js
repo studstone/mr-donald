@@ -10,29 +10,29 @@ import useActiveState from './Components/Hooks/useActiveState';
 
 const App = () => {
 
-  const openItem = useOpenItem()
+    const openItem = useOpenItem();
 
-  const activState = useActiveState()
+    const activState = useActiveState();
 
-  const orders = useOrders()
+    const orders = useOrders();
 
-  return (
-    <>
-      <ClobalStyle />
-      <NavBar />
-      <Order {...orders} />
-      <Menu
-        {...openItem}
-        {...activState}
-      />
-      {openItem.openItem && <ModalItem
-        {...openItem}
-        {...activState}
-        {...orders}
-      />}
-    </>
-  );
-}
+    return (
+        <>
+            <ClobalStyle />
+            <NavBar />
+            <Order {...orders} />
+            <Menu
+                {...openItem}
+                {...activState}
+            />
+            {openItem.openItem && <ModalItem
+                {...openItem}
+                {...activState}
+                {...orders}
+            />}
+        </>
+    );
+};
 console.log();
 
 export default App;

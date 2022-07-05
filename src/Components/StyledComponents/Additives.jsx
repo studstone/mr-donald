@@ -35,17 +35,39 @@ export const AdditivesCheckBox = styled.input`
     clip: rect(0 0 0 0);
     overflow: hidden;
 
-    &:hover + span {
-        box-shadow: ${props => (props.checkbox ? '0 0 5px 2px #44ff00' : '0 0 5px 2px #ff0000')};
+    :hover + span {
+        box-shadow: '0 0 5px 2px #44ff00';
         transition: box-shadow 0.3s ease-in-out;
     }
 
-    &:checked + span {
+    :checked + span {
+        position: relative;
         background-color: #44ff00;
-        background-image: url(${CheckIcon});  
+        background-image: ${props => (props.checkbox ? `url(${CheckIcon})` : 'none')};
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover; 
+        background-size: cover;
         transition: background-color 0.3s ease-in-out;
+        ::before {
+            content: ${props => (!props.checkbox ? `''` : 'none')};
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+        }
     }
+`;
+
+export const CustomCheckBox = styled.span`
+    width: 24px;
+    height: 24px;
+    border: 1px solid #299B01;
+    border-radius: 6px;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    background-image: none;
 `;

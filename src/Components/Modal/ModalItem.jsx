@@ -109,7 +109,7 @@ const ModalItem = ({ openItem, setOpenItem,
         ...openItem,
         count: counter.count,
         topping: toppings.toppings,
-        choices: choices.choice
+        choice: choices.choice
     };
 
     let timeout = null;
@@ -158,7 +158,11 @@ const ModalItem = ({ openItem, setOpenItem,
                         <span>Цена:</span>
                         <span>{formatCurrency(calcPrice(order))}</span>
                     </TotalPriceItem>
-                    <ButtonCheckout onClick={addToOrder}>Добавить</ButtonCheckout>
+                    <ButtonCheckout
+                        disabled={order.choices && !order.choice}
+                        onClick={addToOrder}>
+                        Добавить
+                    </ButtonCheckout>
                 </ModalContent>
                 <CloseButton
                     id='close-button'

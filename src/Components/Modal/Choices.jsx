@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AdditivesCheckBox, AdditivesLable, AdditivesWrapper, Title } from '../StyledComponents/Additives';
+import {
+    AdditivesCheckBox, AdditivesLable, AdditivesWrapper,
+    CustomCheckBox, Title
+} from '../StyledComponents/Additives';
 
-const CustomRadio = styled.span`
-    
+const CustomRadio = styled(CustomCheckBox)`
+    border-radius: 50%;
 `;
 
 const Choices = ({ openItem, choice, changeChoices }) => (
