@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const CountWrapper = styled.div`
     display: flex;
@@ -9,7 +9,7 @@ const CountWrapper = styled.div`
         font: normal 400 21px/25px Roboto, sans-serif;
         margin-right: auto;
     }
-`
+`;
 
 const CountInpyt = styled.input`
     padding: 5px;
@@ -20,7 +20,7 @@ const CountInpyt = styled.input`
     font: normal 400 21px/25px Roboto, sans-serif;
     text-align: center;
     outline: none;
-`
+`;
 
 const ButtonCountMinus = styled.button`
     width: 25px;
@@ -37,7 +37,7 @@ const ButtonCountMinus = styled.button`
         color: white;
         transition: all 0.5s ease-in-out;
     }
-`
+`;
 
 const ButtonCountPlus = styled.button`
     width: 25px;
@@ -54,7 +54,7 @@ const ButtonCountPlus = styled.button`
         color: white;
         transition: all 0.5s ease-in-out;
     }
-`
+`;
 
 function CountItem({ count, setCount, onChange }) {
 
@@ -65,7 +65,7 @@ function CountItem({ count, setCount, onChange }) {
             <CountInpyt type='number' min='1' max='100' value={count < 1 ? 1 : count} onChange={onChange} />
             <ButtonCountPlus onClick={() => setCount(count + 1)}>+</ButtonCountPlus>
         </CountWrapper>
-    )
+    );
 }
 
-export default CountItem
+export default CountItem;

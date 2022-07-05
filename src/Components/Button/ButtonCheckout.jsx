@@ -16,6 +16,6 @@ const ButtonCheckout = styled.button`
     transition: .5s;
     background-color: #3ce200;
     }
-`
+`;
 
 export default ButtonCheckout;

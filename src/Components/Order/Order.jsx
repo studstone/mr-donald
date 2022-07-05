@@ -17,7 +17,7 @@ const OrderStyled = styled.section`
     height: calc(100% - 80px);
     box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.25);
     color: #000000;
-`
+`;
 const OrderTitle = styled.h1`
     font-style: normal;
     font-weight: 400;
@@ -25,26 +25,26 @@ const OrderTitle = styled.h1`
     line-height: 68px;
     text-transform: uppercase;
     margin-bottom: 15px;
-`
+`;
 
 const OrderContent = styled.div`
     flex-grow: 1;
     width: 100%;
-`
+`;
 const OrderList = styled.ul`
-`
+`;
 const Total = styled.div`
     display: flex;
     width: 100%;
     margin-bottom: 15px;
-`
+`;
 const TotalName = styled.span`
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 23px;
     flex-grow: 1;
-`
+`;
 
 const TotalCount = styled.span`
     font-style: normal;
@@ -52,7 +52,7 @@ const TotalCount = styled.span`
     font-size: 20px;
     line-height: 23px;
     margin-right: 30px;
-`
+`;
 
 const TotalPrice = styled.span`
     font-style: normal;
@@ -60,7 +60,7 @@ const TotalPrice = styled.span`
     font-size: 20px;
     line-height: 23px;
     margin-right: 10px;
-`
+`;
 
 const EmtyList = styled.p`
     text-align: center;
@@ -68,16 +68,14 @@ const EmtyList = styled.p`
     font-weight: 400;
     font-size: 21px;
     line-height: 25px;
-`
+`;
 
 const Order = ({ orders }) => {
 
     const total = orders.reduce((res, order) =>
-        calcPrice(order) + res
-        , 0)
+        calcPrice(order) + res, 0);
     const totalCounter = orders.reduce((res, order) =>
-        order.count + res
-        , 0)
+        order.count + res, 0);
 
     return (
         <OrderStyled >
@@ -98,6 +96,6 @@ const Order = ({ orders }) => {
             <ButtonCheckout>Оформить</ButtonCheckout>
         </OrderStyled>
     );
-}
+};
 
 export default Order;

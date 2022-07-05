@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { calcPrice, formatCurrency } from '../Function/secondoryFunction';
-import '../../style/order-animation.css'
+import '../../style/order-animation.css';
 import TrashIcon from './TrashIcon';
 
 const OrderItemStyled = styled.li`
@@ -14,7 +14,7 @@ const OrderItemStyled = styled.li`
     &:last-child {
         margin-bottom: 0;
     }
-`
+`;
 const ItemName = styled.span`
     font-style: normal;
     font-weight: 400;
@@ -37,7 +37,7 @@ const ItemPrice = styled.span`
     font-size: 20px;
     line-height: 23px;
     margin-right: 10px;
-`
+`;
 
 const TrashButton = styled.button`
     padding: 0;
@@ -45,19 +45,19 @@ const TrashButton = styled.button`
     height: 24px;
     background-color: transparent;
     border: none;
-`
+`;
 
 const ToppingsName = styled.p`
     color: #9a9a9a;
     font-size: 14px;
     width: 100%;
     margin-top: 5px;
-`
+`;
 
 const OrderListItem = ({ order }) => {
     const topping = order.topping.filter(item => item.checked)
         .map(item => item.name)
-        .join(', ')
+        .join(', ');
 
     return (
 
@@ -71,6 +71,6 @@ const OrderListItem = ({ order }) => {
             {topping && <ToppingsName>Допы: {topping}</ToppingsName>}
         </OrderItemStyled>
     );
-}
+};
 
 export default OrderListItem;

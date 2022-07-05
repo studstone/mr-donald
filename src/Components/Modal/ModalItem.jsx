@@ -4,7 +4,7 @@ import IconCloseButton from '../../image/close.svg';
 import '../../style/modal-animation.css';
 import ButtonCheckout from '../Button/ButtonCheckout';
 import CountItem from './CountItem';
-import useCount from '../Hooks/useCount'
+import useCount from '../Hooks/useCount';
 import { calcPrice } from '../Function/secondoryFunction';
 import { formatCurrency } from '../Function/secondoryFunction';
 import Topings from './Topings';
@@ -20,7 +20,7 @@ const Overlay = styled.div`
     height: 100%;
     background-color: rgba(0,0,0, .5);
     z-index: 20;
-`
+`;
 const Modal = styled.div`
     position: fixed;
     top: 20%;
@@ -30,14 +30,14 @@ const Modal = styled.div`
     height: auto;
     border-radius: 8px;
     overflow-y: auto;
-`
+`;
 const Banner = styled.div`
     height: 200px;
     background-image: url(${({ img }) => img});
     background-size: cover;
     background-position: center;
     border-radius: 8px 8px 0 0 ;
-`
+`;
 const ModalContent = styled.div`
     padding: 20px 53px 43px 37px;
     display: flex;
@@ -47,13 +47,13 @@ const ModalContent = styled.div`
     background-color: #fff;
     min-height: 403px;
     border-radius:  0 0 8px 8px;
-`
+`;
 const ProductInfo = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-`
+`;
 
 const ProductName = styled.span`
     font-family: 'Pacifico', cursive;
@@ -61,14 +61,14 @@ const ProductName = styled.span`
     font-weight: 400;
     font-size: 24px;
     line-height: 42px;
-`
+`;
 const ProductPrice = styled.span`
     font-family: 'Pacifico', cursive;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 42px;
-`
+`;
 
 const CloseButton = styled.button`
     position: absolute;
@@ -84,7 +84,7 @@ const CloseButton = styled.button`
     &:hover {
     transform: rotate(180deg);
     }
-`
+`;
 
 const TotalPriceItem = styled.div`
     display: flex;
@@ -94,16 +94,16 @@ const TotalPriceItem = styled.div`
     & span {
         font: normal 400 21px/25px Roboto, sans-serif;
     }
-`
+`;
 
 const ModalItem = ({ openItem, setOpenItem,
     activeState, setActiveState,
     orders, setOrders }) => {
-    const body = document.querySelector('body')
+    const body = document.querySelector('body');
 
-    const counter = useCount()
-    const toppings = useToppings(openItem)
-    const choices = useChoise(openItem)
+    const counter = useCount();
+    const toppings = useToppings(openItem);
+    const choices = useChoise(openItem);
 
     const order = {
         ...openItem,
@@ -114,29 +114,29 @@ const ModalItem = ({ openItem, setOpenItem,
 
     let timeout = null;
 
-    const closeModal = (e) => {
-        clearTimeout(timeout)
+    const closeModal = e => {
+        clearTimeout(timeout);
         if (e.target.id === 'overlay' || e.target.id === 'close-button') {
-            timeout = setTimeout(() => setOpenItem(null), 1000)
-            setActiveState(false)
-            body.removeAttribute('style')
+            timeout = setTimeout(() => setOpenItem(null), 1000);
+            setActiveState(false);
+            body.removeAttribute('style');
         }
-    }
+    };
 
     document.addEventListener("keydown", e => {
-        clearTimeout(timeout)
+        clearTimeout(timeout);
         if (e.key === "Escape" && Overlay) {
-            timeout = setTimeout(() => setOpenItem(null), 1000)
-            setActiveState(false)
-            body.removeAttribute('style')
+            timeout = setTimeout(() => setOpenItem(null), 1000);
+            setActiveState(false);
+            body.removeAttribute('style');
         }
     });
 
     const addToOrder = () => {
-        setTimeout(() => setOrders([...orders, order]), 1000)
-        setTimeout(() => setOpenItem(null), 1000)
-        setActiveState(false)
-    }
+        setTimeout(() => setOrders([...orders, order]), 1000);
+        setTimeout(() => setOpenItem(null), 1000);
+        setActiveState(false);
+    };
 
     return (
         < Overlay
@@ -167,6 +167,6 @@ const ModalItem = ({ openItem, setOpenItem,
             </Modal>
         </Overlay >
     );
-}
+};
 
 export default ModalItem;

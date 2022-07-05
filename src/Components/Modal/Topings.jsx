@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import { AdditivesCheckBox, AdditivesLable, AdditivesWrapper, Title } from '../StyledComponents/Additives';
 
@@ -10,7 +10,7 @@ const CustomCheckBox = styled.span`
     margin-right: 10px;
     background-color: #f0f0f0;
     background-image: none;
-`
+`;
 
 function Topings({ toppings, checkToppings }) {
     return (
@@ -31,7 +31,7 @@ function Topings({ toppings, checkToppings }) {
                 ))}
             </AdditivesWrapper>
         </>
-    )
+    );
 }
 
-export default Topings
+export default Topings;

@@ -1,16 +1,16 @@
-import styled from 'styled-components'
-import CheckIcon from '../../image/check.svg'
+import styled from 'styled-components';
+import CheckIcon from '../../image/check.svg';
 
 export const Title = styled.h3`
     width: 100%;
     font: normal 400 24px/42px Pacifico, cursive;
     text-align: left;
-`
+`;
 export const AdditivesWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-`
+`;
 export const AdditivesLable = styled.label`
     padding-left: 66px;
     font: normal 400 20px/23px Roboto, sans-serif;
@@ -24,7 +24,7 @@ export const AdditivesLable = styled.label`
     &:last-child {
         margin-bottom: 0;
     }
-`
+`;
 export const AdditivesCheckBox = styled.input`
     position: absolute;
     width: 1px;
@@ -36,7 +36,7 @@ export const AdditivesCheckBox = styled.input`
     overflow: hidden;
 
     &:hover + span {
-        box-shadow: ${props => props.checkbox ? '0 0 5px 2px #44ff00' : '0 0 5px 2px #ff0000'};
+        box-shadow: ${props => (props.checkbox ? '0 0 5px 2px #44ff00' : '0 0 5px 2px #ff0000')};
         transition: box-shadow 0.3s ease-in-out;
     }
 
@@ -48,4 +48,4 @@ export const AdditivesCheckBox = styled.input`
         background-size: cover; 
         transition: background-color 0.3s ease-in-out;
     }
-`
+`;

@@ -4,7 +4,7 @@ const useOrders = () => {
 
     const [orders, setOrders] = useState([]);
 
-    return { orders, setOrders }
-}
+    return { orders, setOrders };
+};
 
 export default useOrders;

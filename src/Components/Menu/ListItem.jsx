@@ -46,7 +46,7 @@ const Item = styled.li`
 `;
 
 const ListItem = ({ itemList, setOpenItem, setActiveState }) => {
-    const body = document.querySelector('body')
+    const body = document.querySelector('body');
 
     return (
         <List>
@@ -66,6 +66,6 @@ const ListItem = ({ itemList, setOpenItem, setActiveState }) => {
             ))}
         </List>
     );
-}
+};
 
 export default ListItem;
