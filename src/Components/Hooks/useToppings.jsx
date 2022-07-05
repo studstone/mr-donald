@@ -6,8 +6,8 @@ const getTopping = toppings => toppings.map(item => ({
 }))
 
 const useToppings = openItem => {
-
-    const [toppings, setTopings] = useState(getTopping(openItem.toppings));
+    const readyTopping = openItem.toppings ? getTopping(openItem.toppings) : []
+    const [toppings, setTopings] = useState(readyTopping);
 
 
     const checkToppings = index => {

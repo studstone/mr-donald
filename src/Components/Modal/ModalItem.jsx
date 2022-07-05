@@ -9,6 +9,8 @@ import { calcPrice } from '../Function/secondoryFunction';
 import { formatCurrency } from '../Function/secondoryFunction';
 import Topings from './Topings';
 import useToppings from '../Hooks/useToppings';
+import useChoise from '../Hooks/useChoices';
+import Choices from './Choices';
 
 const Overlay = styled.div`
     position: fixed;
@@ -101,11 +103,13 @@ const ModalItem = ({ openItem, setOpenItem,
 
     const counter = useCount()
     const toppings = useToppings(openItem)
+    const choices = useChoise(openItem)
 
     const order = {
         ...openItem,
         count: counter.count,
-        topping: toppings.toppings
+        topping: toppings.toppings,
+        choices: choices.choice
     };
 
     let timeout = null;
@@ -149,13 +153,17 @@ const ModalItem = ({ openItem, setOpenItem,
                     </ProductInfo>
                     <CountItem {...counter} />
                     {openItem.toppings && <Topings {...toppings} />}
+                    {openItem.choices && <Choices {...choices} openItem={openItem} />}
                     <TotalPriceItem>
                         <span>Цена:</span>
                         <span>{formatCurrency(calcPrice(order))}</span>
                     </TotalPriceItem>
                     <ButtonCheckout onClick={addToOrder}>Добавить</ButtonCheckout>
                 </ModalContent>
-                <CloseButton id='close-button' />
+                <CloseButton
+                    id='close-button'
+                    onClick={closeModal}
+                />
             </Modal>
         </Overlay >
     );

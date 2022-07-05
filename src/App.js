@@ -1,5 +1,5 @@
 import React from "react";
-import ClobalStyle from "./Components/GlobalStyle/GlobalStyle";
+import ClobalStyle from "./Components/StyledComponents/GlobalStyle";
 import Menu from "./Components/Menu/Menu";
 import ModalItem from "./Components/Modal/ModalItem";
 import NavBar from "./Components/NavBar/NavBar";
