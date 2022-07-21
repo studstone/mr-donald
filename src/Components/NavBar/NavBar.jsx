@@ -47,10 +47,10 @@ const HeaderButton = styled.button`
     font-size: 16px;
     line-height: 19px;
     border-radius: 50%;
+    transition: background-color, box-shadow 1s ease;
     &:hover{
         background-color: #32bd00;
         box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
-        transition: 1s;
     }
 `;
 const IconButton = styled.img`

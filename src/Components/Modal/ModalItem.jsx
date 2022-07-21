@@ -104,12 +104,19 @@ const ModalItem = ({ openItem, setOpenItem,
     const counter = useCount();
     const toppings = useToppings(openItem);
     const choices = useChoise(openItem);
+    const isEdit = openItem.index > -1;
 
     const order = {
         ...openItem,
         count: counter.count,
         topping: toppings.toppings,
         choice: choices.choice
+    };
+
+    const editOrder = () => {
+        const newOrders = [...orders];
+        newOrders[openItem.index] = order;
+        setOrders(newOrders);
     };
 
     let timeout = null;
@@ -160,7 +167,7 @@ const ModalItem = ({ openItem, setOpenItem,
                     </TotalPriceItem>
                     <ButtonCheckout
                         disabled={order.choices && !order.choice}
-                        onClick={addToOrder}>
+                        onClick={isEdit ? editOrder : addToOrder}>
                         Добавить
                     </ButtonCheckout>
                 </ModalContent>

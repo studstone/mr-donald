@@ -20,7 +20,11 @@ const App = () => {
         <>
             <ClobalStyle />
             <NavBar />
-            <Order {...orders} />
+            <Order
+                {...orders}
+                {...openItem}
+                {...activState}
+            />
             <Menu
                 {...openItem}
                 {...activState}

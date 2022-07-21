@@ -54,18 +54,27 @@ const ToppingsName = styled.p`
     margin-top: 5px;
 `;
 
-const OrderListItem = ({ order }) => {
+const OrderListItem = ({ order, index, deleteItem, setOpenItem, setActiveState }) => {
+    const body = document.querySelector('body');
+
     const topping = order.topping.filter(item => item.checked)
         .map(item => item.name)
         .join(', ');
 
     return (
 
-        < OrderItemStyled className='active'>
+        < OrderItemStyled
+            className='active'
+            onClick={() => {
+                setActiveState(true);
+                setOpenItem({ ...order, index });
+                body.style.overflow = 'hidden';
+            }}
+        >
             <ItemName>{order.name} {order.choice}</ItemName>
             <ItemCount>{order.count}</ItemCount>
             <ItemPrice>{formatCurrency(calcPrice(order))}</ItemPrice>
-            <TrashButton>
+            <TrashButton onClick={() => deleteItem(index)} >
                 <TrashIcon />
             </TrashButton>
             {topping && <ToppingsName>Допы: {topping}</ToppingsName>}

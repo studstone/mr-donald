@@ -13,7 +13,7 @@ const OrderStyled = styled.section`
     flex-direction: column;
     align-items: center;
     background-color: white;
-    min-width: 380px;
+    width: 380px;
     height: calc(100% - 80px);
     box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.25);
     color: #000000;
@@ -70,7 +70,12 @@ const EmtyList = styled.p`
     line-height: 25px;
 `;
 
-const Order = ({ orders }) => {
+const Order = ({ orders, setOrders, setOpenItem, setActiveState }) => {
+
+    const deleteItem = index => {
+        const newOrders = orders.filter((item, i) => index !== i);
+        setOrders(newOrders);
+    };
 
     const total = orders.reduce((res, order) =>
         calcPrice(order) + res, 0);
@@ -83,7 +88,15 @@ const Order = ({ orders }) => {
             <OrderContent>
                 {orders.length ?
                     <OrderList>
-                        {orders.map(order => <OrderListItem key={order.id} order={order} />)}
+                        {orders.map((order, index) => <OrderListItem
+                            key={index}
+                            order={order}
+                            deleteItem={deleteItem}
+                            index={index}
+                            setOpenItem={setOpenItem}
+                            setActiveState={setActiveState}
+                        />
+                        )}
                     </OrderList> :
                     <EmtyList>Список заказов пуст</EmtyList>
                 }
